@@ -1,0 +1,14 @@
+1) Las computadoras procesan los datos bajo el control de conjuntos de instrucciones llamados
+- PROGRAMAS
+
+2) A los programas que traducen programas escritos en un lenguaje de alto nivel a lenguaje máquina se les llama
+- COMPILADORES
+
+3) ¿Como se denomina a la herramienta que se utiliza para generar los programas?
+- EDITOR
+
+4) El programa que combina la salida del compilador con varias bibliotecas de funciones para producir una imagen ejecutable se denomina
+- ENLAZADOR
+
+5) Un compilador traduce programas en un lenguaje de alto nivel a código
+- EJECUTABLE

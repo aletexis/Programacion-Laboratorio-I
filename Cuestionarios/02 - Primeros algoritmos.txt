@@ -1,0 +1,35 @@
+1) Una variable utilizada como máximo
+- DEBE SER COMPARADA COMO MENOR AL DATO INGRESADO
+
+2) Indique cuándo es conveniente utilizar cada estructura de control 
+- WHILE: NO SE CONOCE LA CANTIDAD DE ITERACIONES
+- FOR: SE CONOCE LA CANTIDAD DE ITERACIONES
+- DO WHILE: SE TIENE QUE ITERAR AL MENOS UNA VEZ
+
+3) Si la variable condición es falsa, ¿Cuál es la salida por consola del siguiente código?
+if(condicion)
+{
+	printf("Entro al if");
+}
+else if(!condicion)
+{
+	printf("Entro al else if");
+}
+else
+{
+	printf("Entro al else");
+}
+
+- ENTRO AL ELSE IF
+
+4) Para permitir al usuario ingresar un dato numérico y almacenarlo en la variable "num" se debe utilizar la función:
+- scanf("%d", &num);
+
+5) Una uso de variable con característica
+- CONTADOR: SE DEBE INICIALIZAR OBLIGATORIAMENTE
+- ACUMULADOR: SE DEBE INICIALIZAR OBLIGATORIAMENTE
+- MAXIMO: NO ES NECESARIO INICIALIZARLA
+- MINIMO: NO ES NECESARIO INICIALIZARLA
+
+6) Una variable utilizada como máximo o mínimo se debe declarar dentro de la estructura de control iterativa
+- FALSO

@@ -1,0 +1,49 @@
+Para que el compilador reconozca una función, la misma debe tener declarado el prototipo
+- ANTES DEL MAIN
+
+Trabajando con funciones se logra
+- QUE EL PROGRAMA SEA MAS SIMPLE DE COMPRENDER
+- QUE LA DEPURACION QUEDE ACOTADA A CADA MODULO
+- OBTENER UNA INDEPENDENCIA DEL CODIGO EN CADA MODULO
+
+
+Una buena práctica de programación es utilizar variables locales y globales
+- FALSO
+
+
+Las funciones pueden agruparse en archivos llamados
+- BIBLIOTECAS
+
+
+¿Cuál es el comando qué permite enviar información al repositorio remoto?
+- GIT PUSH ORIGIN MASTER
+
+
+Una función consta de:
+- DESARROLLO
+- LLAMADA
+- DECLARACION
+
+
+La manera de devolver el control desde la función invocada hasta la función que la llama es:
+- ENCONTRAR LA LLAVE DERECHA DE FIN DE FUNCION
+- ENCONTRAR LA PALABRA RESERVADA RETURN
+
+
+Determine, según dónde fue definida la variable, cómo se la conoce
+- LOCAL: DENTRO DE LA FUNCION
+- GLOBAL: FUERA DE CUALQUIER BLOQUE O FUNCION
+
+
+Si deseas obtener una copia de un repositorio Git existente en GitHub, el comando que necesitas es :
+- GIT CLONE
+
+
+Lo que permite al compilador verificar el número, tipo y orden de los argumentos que se pasan a una función se denomina
+- PROTOTIPO
+
+
+Para diseñar una funcion se debe responder:
+- QUE HACE
+- QUE RECIBE
+- QUE DEVUELVE
