@@ -11,7 +11,7 @@ int getFloatNumber(float*, char[], char[], float, float, int);
 int getFloat(float*);
 int isNumericFloat(char[], int);
 
-int getCharacter(char*, char[], char[], int);
+int getCharacter(char*, char[], char[], int, int, int);
 int getChar(char*);
 
 int getText(char*, char[], char[], int);

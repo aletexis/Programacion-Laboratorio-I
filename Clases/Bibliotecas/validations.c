@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
 #include "validations.h"
 
 int myGets(char* string, int lenght)
@@ -171,28 +172,26 @@ int isNumericFloat(char string[], int lenght)
 	return ret;
 }
 
-int getCharacter(char* pResult, char message[], char errorMessage[], int tries)
+int getCharacter(char* pResult, char message[], char errorMessage[], int min, int max, int tries)
 {
-    int ret = -1;
+	int ret = -1;
     char bufferChar;
 
-    if(pResult != NULL && message != NULL && errorMessage != NULL && tries >= 0)
+    if(pResult != NULL && message != NULL && errorMessage != NULL && min <= max && tries >= 0)
     {
-        do
-        {
-            printf("%s", message);
-            setbuf(stdin, NULL);
-            scanf("%c", &bufferChar);
+       do
+       {
+           printf("%s", message);
 
-            if((bufferChar > 'a' || bufferChar < 'z') && (bufferChar > 'A' || bufferChar < 'Z'))
+            if(getString(&bufferChar) == 0)
             {
                 *pResult = bufferChar;
                 ret = 0;
                 break;
-            }
-            printf("%s", errorMessage);
-            tries--;
-        }while(tries >= 0);
+           }
+           printf("%s", errorMessage);
+           tries--;
+       }while(tries >= 0);
     }
 
     return ret;
@@ -232,7 +231,6 @@ int getString(char* pResult)
     {
 		strcpy(pResult, bufferString);
 		ret = 0;
-
     }
     return ret;
 }
@@ -246,6 +244,11 @@ int isString(char string[], int lenght)
         ret = 1;//true
         for(int i=0; i<lenght && string[i] != '\0'; i++)
         {
+            /*if(string[0] == ' ') fijarse tambien si es \n
+            {
+                ret = 0;//false
+                break;
+            }*/
             if((string[i] < 'a' || string[i] > 'z') && (string[i] < 'A' || string[i] > 'Z') && (string[i] != ' '))
             {
                 ret = 0;//false

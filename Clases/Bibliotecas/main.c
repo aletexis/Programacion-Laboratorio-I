@@ -30,7 +30,7 @@ int main()
         printf("\nERROR\n");
     }
 
-    if(getCharacter(&bufferChar, "\nIngrese un caracter: ", "\nError. Caracter invalido.\n", 3) == 0)
+    if(getCharacter(&bufferChar, "\nIngrese un caracter: ", "\nError. Caracter invalido.\n",1,3, 3) == 0)
     {
         printf("\nEl caracter es: %c\n", bufferChar);
     }
