@@ -171,13 +171,12 @@ int isNumericFloat(char string[], int lenght)
 	return ret;
 }
 
-
-int getCharacter(char* pResult, char message[], char errorMessage[], char min, char max, int tries)
+int getCharacter(char* pResult, char message[], char errorMessage[], int tries)
 {
     int ret = -1;
     char bufferChar;
 
-    if(*pResult != NULL && message != NULL && errorMessage != NULL && min <= max && tries >= 0)
+    if(pResult != NULL && message != NULL && errorMessage != NULL && tries >= 0)
     {
         do
         {
@@ -185,7 +184,7 @@ int getCharacter(char* pResult, char message[], char errorMessage[], char min, c
             setbuf(stdin, NULL);
             scanf("%c", &bufferChar);
 
-            if(myGets(bufferChar,sizeof(bufferChar)) == 0 && bufferChar >= min && bufferChar <= max)
+            if((bufferChar > 'a' || bufferChar < 'z') && (bufferChar > 'A' || bufferChar < 'Z'))
             {
                 *pResult = bufferChar;
                 ret = 0;
@@ -196,5 +195,63 @@ int getCharacter(char* pResult, char message[], char errorMessage[], char min, c
         }while(tries >= 0);
     }
 
+    return ret;
+}
+
+int getText(char* pResult, char message[], char errorMessage[], int tries)
+{
+	int ret = -1;
+    char bufferString[50];
+
+    if(pResult != NULL && message != NULL && errorMessage != NULL && tries >= 0)
+    {
+       do
+       {
+            printf("%s", message);
+
+            if(getString(bufferString) == 0)
+            {
+                strcpy(pResult, bufferString);
+                ret = 0;
+                break;
+            }
+            printf("%s", errorMessage);
+            tries--;
+       }while(tries >= 0);
+    }
+
+    return ret;
+}
+
+int getString(char* pResult)
+{
+    int ret = -1;
+    char bufferString[50];
+
+    if(pResult != NULL && myGets(bufferString,sizeof(bufferString)) == 0 && isString(bufferString, sizeof(bufferString)) == 1)
+    {
+		strcpy(pResult, bufferString);
+		ret = 0;
+
+    }
+    return ret;
+}
+
+int isString(char string[], int lenght)
+{
+    int ret = -1;//error
+
+    if(string != NULL && lenght > 0)
+    {
+        ret = 1;//true
+        for(int i=0; i<lenght && string[i] != '\0'; i++)
+        {
+            if((string[i] < 'a' || string[i] > 'z') && (string[i] < 'A' || string[i] > 'Z') && (string[i] != ' '))
+            {
+                ret = 0;//false
+                break;
+            }
+        }
+    }
     return ret;
 }

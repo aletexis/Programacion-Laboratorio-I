@@ -11,12 +11,12 @@ int getFloatNumber(float*, char[], char[], float, float, int);
 int getFloat(float*);
 int isNumericFloat(char[], int);
 
-int getCharacter(char*, char[], char[], char, char, int);
+int getCharacter(char*, char[], char[], int);
 int getChar(char*);
 
-int getText(char*, char[], char[], char, char, int);
-int getString(char[], int);
-int isString(char[]);
+int getText(char*, char[], char[], int);
+int getString(char[]);
+int isString(char[], int);
 
 
 
