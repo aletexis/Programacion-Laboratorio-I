@@ -4,28 +4,6 @@
 #include <conio.h>
 #include "validations.h"
 
-
-/** \brief Obtiene un numero entero
- * Solicita un texto al usuario, lo almacena como cadena, valida y convierte el texto a numero.
- *
- * \param result[] int La cadena a convertir
- * \return int (0) si pudo pasarla (-1) si no pudo
- *
- */
-//int getInt(int* pResult)
-
-
-/** \brief  Recibe una cadena de caracteres y verifica que el texto este compuesto solo por números.
- *
- * \param string[] char La cadena a analizar
- * \return int (0) si son todos numeros (-1) si no son
- *
- */
-//int isNumericInt(char string[], int lenght)
-
-
-/////////////////////////////////////////////////////////////////////
-
 int getString(char* message, char* messageError, int min, int max, int* tries, char* result)
 {
     int ret = -1;
@@ -39,7 +17,7 @@ int getString(char* message, char* messageError, int min, int max, int* tries, c
             fgets(bufferString,sizeof(bufferString),stdin);
             bufferString[strlen(bufferString)-1]='\0';
 
-            if(strlen(bufferString) >= min && strlen(bufferString) < max)    // tamaño (max) =cantidad de elementos (strlen) + 1(\0)
+            if(strlen(bufferString) >= min && strlen(bufferString) <= max)    // tamaño (max) =cantidad de elementos (strlen) + 1(\0)
             {
                 strncpy(result,bufferString,max);
                 ret = 0;
@@ -61,7 +39,7 @@ int validations_getUnsignedInt(int* input, char* message, char* messageError, in
     int ret = -1;
     char bufferString[maxSize];
 
-    if(input != NULL && message != NULL && messageError != NULL && minSize < maxSize && min < max && tries >= 0)
+    if(input != NULL && message != NULL && messageError != NULL && minSize <= maxSize && min <= max && tries >= 0)
     {
         do
         {
@@ -71,7 +49,7 @@ int validations_getUnsignedInt(int* input, char* message, char* messageError, in
                 if(isValidNumber(bufferString) == 1)//////////************
                 {
                     *input = atoi(bufferString);
-                    if(*input > min && *input < max)
+                    if(*input >= min && *input <= max)
                     {
                         ret = 0;
                         //printf("\nEntro al if de is valid number");
@@ -109,7 +87,7 @@ int validations_getSignedInt(int* input, char* message, char* messageError, int 
     char bufferString[maxSize];
     int auxInt;
 
-    if(input != NULL && message != NULL && messageError != NULL && minSize < maxSize && min < max && tries >= 0)
+    if(input != NULL && message != NULL && messageError != NULL && minSize <= maxSize && min <= max && tries >= 0)
     {
         do
         {
@@ -124,7 +102,7 @@ int validations_getSignedInt(int* input, char* message, char* messageError, int 
                         break;
                     }*/
                     auxInt = atoi(bufferString);
-                    if(auxInt > min && auxInt < max)
+                    if(auxInt >= min && auxInt <= max)
                     {
                         *input = auxInt;
                         ret = 0;
@@ -165,7 +143,7 @@ int validations_getFloat(float* input, char* message, char* messageError, int mi
     int ret = -1;
     char bufferString[maxSize];
 
-    if(input != NULL && message != NULL && messageError != NULL && minSize < maxSize && min < max && tries >= 0)
+    if(input != NULL && message != NULL && messageError != NULL && minSize <= maxSize && min <= max && tries >= 0)
     {
         do
         {
@@ -174,7 +152,7 @@ int validations_getFloat(float* input, char* message, char* messageError, int mi
                 if(isValidFloatNumber(bufferString, sizeof(bufferString)) == 1)
                 {
                     *input = atof(bufferString);
-                    if(*input > min && *input < max)
+                    if(*input >= min && *input <= max)
                     {
                         ret = 0;
                         break;
@@ -191,18 +169,18 @@ int validations_getFloat(float* input, char* message, char* messageError, int mi
 int isValidFloatNumber(char* string, int lenght)
 {
     int ret = -1;
-    int dotsCounter = 0;
+    //nt dotsCounter = 0;
 
     if(string != NULL && lenght > 0)
 	{
 		ret = 1;
         for(int i=0; i<lenght && string[i] != '\0'; i++)
         {
-            if(string[i] == '.')
+            /*if(string[i] == '.')
             {
                 dotsCounter++;
-            }
-            if(((string[i] < '0' || string[i] > '9') && string[i] != '.') || (dotsCounter > 1))
+            }*/
+            if(((string[i] < '0' || string[i] > '9') && string[i] != '.') /*|| (dotsCounter > 1)*/)
             {
                 ret = 0;
                 break;
@@ -213,12 +191,12 @@ int isValidFloatNumber(char* string, int lenght)
 }
 
 
-int validations_getChar(char* result, char* message, char* messageError, int min, int max, int tries)
+int validations_getChar(char* result, char* message, char* messageError, int tries)
 {
     int ret = -1;
     char bufferChar[256];
 
-    if(result != NULL && message != NULL && messageError != NULL && min <= max && tries >= 0)
+    if(result != NULL && message != NULL && messageError != NULL && tries >= 0)
     {
         do
         {
@@ -257,7 +235,7 @@ int validations_getText(char* input, char* message, char* messageError, int minS
     int ret = -1;
     char bufferString[maxSize];
 
-    if(input != NULL && message != NULL && messageError != NULL && minSize < maxSize && tries >= 0)
+    if(input != NULL && message != NULL && messageError != NULL && minSize <= maxSize && tries >= 0)
     {
         do
         {
@@ -614,7 +592,7 @@ int isValidEmail(char* string, int lenght)
 }
 
 
-int validations_getGenre(char* result, char* message, char* messageError, int tries)
+int validations_getGender(char* result, char* message, char* messageError, int tries)
 {
     int ret = -1;
     char bufferChar[256];
@@ -625,7 +603,7 @@ int validations_getGenre(char* result, char* message, char* messageError, int tr
         {
             if(!getString(message,messageError,1,3,&tries,bufferChar))
             {
-                if(isValidGenre(bufferChar[0]) == 1)
+                if(isValidGender(bufferChar[0]) == 1)
                 {
                     *result = bufferChar[0];
                     ret = 0;
@@ -640,7 +618,7 @@ int validations_getGenre(char* result, char* message, char* messageError, int tr
     }
     return ret;
 }
-int isValidGenre(char character)
+int isValidGender(char character)
 {
     int ret = 1;
 
@@ -651,4 +629,3 @@ int isValidGenre(char character)
 
     return ret;
 }
-

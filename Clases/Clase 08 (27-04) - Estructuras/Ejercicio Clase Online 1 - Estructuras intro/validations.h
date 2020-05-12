@@ -14,7 +14,7 @@ int isValidSignedNumber(char* string, int lenght);
 int validations_getFloat(float* input, char* message, char* messageError, int minSize, int maxSize, int min, int max, int tries);
 int isValidFloatNumber(char* string, int lenght);
 
-int validations_getChar(char* result, char* message, char* messageError, int min, int max, int tries);
+int validations_getChar(char* result, char* message, char* messageError, int tries);
 int isValidChar(char character);
 
 int validations_getText(char* input, char* message, char* messageError, int minSize, int maxSize, int tries);
@@ -40,7 +40,9 @@ int isValidCUIT(char* string);
 int validations_getEmail(char* input, char* message, char* messageError, int minSize, int maxSize, int tries);
 int isValidEmail(char* string, int lenght);
 
-int validations_getGenre(char* result, char* message, char* messageError, int tries);
-int isValidGenre(char character);
+int validations_getGender(char* result, char* message, char* messageError, int tries);
+int isValidGender(char character);
+
+
 
 #endif // VALIDATIONS_H_INCLUDED
