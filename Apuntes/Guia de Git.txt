@@ -1,0 +1,50 @@
+Guia de Git
+
+crear un repositorio nuevo --> git init
+crear una copia local del repositorio ejecutando --> git clone /path/to/repository
+crear una copia usando un servidor remoo --> git clone username@host:/path/to/repository
+
+Tu repositorio local esta compuesto por tres "árboles" administrados por git.
+1. Directorio de trabajo: contiene los archivos
+2. Index (stage area): actua como una zona intermedia
+3. HEAD: apunta al último commit realizado.
+
+registrar cambios agregandolos al stage area --> git add <filename> o git add .
+hacer commit a estos cambios --> git commit -m "Commit message"
+
+Tus cambios están ahora en el HEAD de tu copia local. 
+
+enviar estos cambios a tu repositorio remoto --> git push origin master
+Reemplaza master por la rama a la que quieres enviar tus cambios.
+
+Si no has clonado un repositorio ya existente y quieres conectar tu repositorio local a un repositorio remoto --> git remote add origin <server>
+Ahora podrás subir tus cambios al repositorio remoto seleccionado.
+
+Las ramas son utilizadas para desarrollar funcionalidades aisladas unas de otras. La rama master es la rama "por defecto" cuando creas un repositorio. 
+Crea nuevas ramas durante el desarrollo y fusiónalas a la rama principal cuando termines.
+
+crear una nueva rama llamada "feature_x" y cámbiarse a ella usando --> git checkout -b feature_x
+volver a la rama principal --> git checkout master
+borra la rama --> git branch -d feature_x
+Una rama nueva no estará disponible para los demás a menos que subas (push) la rama a tu repositorio remoto --> git push origin <branch>
+
+actualizar tu repositorio local al commit más nuevo --> git pull
+en tu directorio de trabajo para bajar y fusionar los cambios remotos.
+
+fusionar otra rama a tu rama activa (por ejemplo master) --> git merge <branch>
+en ambos casos git intentará fusionar automáticamente los cambios. Desafortunadamente, no siempre será posible y se podrán producir conflictos. Tú eres responsable de fusionar esos conflictos manualmente al editar los archivos mostrados por git. 
+Después de modificarlos, necesitas marcarlos como fusionados --> git add <filename>
+Antes de fusionar los cambios, puedes revisarlos --> git diff <source_branch> <target_branch>
+
+En caso de que hagas algo mal  puedes reemplazar cambios locales --> git checkout -- <filename>
+Este comando reemplaza los cambios en tu directorio de trabajo con el último contenido de HEAD. Los cambios que ya han sido agregados al Index, así como también los nuevos archivos, se mantendrán sin cambio.
+
+Por otro lado, si quieres deshacer todos los cambios locales y commits, puedes traer la última versión del servidor y apuntar a tu copia local principal de esta forma
+git fetch origin
+git reset --hard origin/master
+
+
+
+
+
+
