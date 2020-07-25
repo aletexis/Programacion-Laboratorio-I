@@ -1,0 +1,141 @@
+LinkedList* ll_newLinkedList(void);
+/**
+	Crear una lista. Nos devuelve un puntero a una lista
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_len(LinkedList* this);
+/**
+	Me dice cuanto mide tal lista
+**///////////////////////////////////////////////////////////////
+
+
+
+Node* test_getNode(LinkedList* this, int nodeIndex);
+int test_addNode(LinkedList* this, int nodeIndex,void* pElement);
+
+
+
+
+int ll_add(LinkedList* this, void* pElement);
+/**
+	Nos permite agregar un elemento nuevo a la lista, le pasamos
+	el puntero a la lista (lo que nos duevuelve el new) y el elemento que queremos 		guradar ahi
+**///////////////////////////////////////////////////////////////
+
+
+
+void* ll_get(LinkedList* this, int index);
+/**
+	Le vamos a pedir un elemento a la lista.
+	recibe: la lista y que posicion de la lista queremos obtener
+	devuelve: puntero a void.
+	Ejemplo: le pasamos un Employee* y cuando recibimos lo que la lista
+	nos devuelve lo guardamos en un Employee*
+	si esto genera un warning lo casteamos:
+	Employee* pAuxEmployee;
+	pAuxEmployee = (Employee*) ll_get(employeeList, 4);
+**///////////////////////////////////////////////////////////////
+
+
+int ll_set(LinkedList* this, int index,void* pElement);
+/**
+	Guardar un elemento en tal posicion (si la posicion existe)
+	Una manera de usar esta funcion es cambiar el puntero que esta alojado
+	en alguna posicion de esa lista en tanto esa posicion exista
+	Si la lista tiene 3 elementos yo no le puedo decir que setee el elemento 15.
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_remove(LinkedList* this,int index);
+/**
+	Le decimos una posicion de la lista y elimina ese elemento
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_clear(LinkedList* this);
+/**
+	Borra todos los elementos que tiene la lista
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_deleteLinkedList(LinkedList* this);
+/**
+	Borra de memoria la lista.
+	Para hacer un borrado razonable primero hay que hacer un clear y despues un 		delate. O sea primero habria que borrar los empleados y despues borrar la lista.
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_indexOf(LinkedList* this, void* pElement);
+/**
+	Le doy un elemento que creo que esta en alguna posicion de la lista y me
+	devuelve en que posicion se encuentra ese elemento
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_isEmpty(LinkedList* this);
+/**
+	Me avisa si la lista vacia
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_push(LinkedList* this, int index, void* pElement);
+/**
+	Me permite elegir un lugar para agregar un elemento.
+	Puedo meter un elemento en medio de otros dos
+	al elemento 2 lo corre a la posicion del 3 y en la posicion antigua del 2 pone el 		elemento nuevo.
+**///////////////////////////////////////////////////////////////
+
+
+
+void* ll_pop(LinkedList* this,int index);
+/**
+	Me permite sacar un elemento de la lista, pero al mismo tiempo que lo saco me lo 	devuelve. En vez de hacer un get y un remove hago un pop
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_contains(LinkedList* this, void* pElement);
+/**
+	Me devuelve true si el elemento por el cual pregunto esta en la lista
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_containsAll(LinkedList* this,LinkedList* this2);
+/**
+	Me duevuelve true si la lista contiene todos los elementos de la otra lista que le 		estoy pasando por parametro. SI una lista esta contenida en otra
+**///////////////////////////////////////////////////////////////
+
+
+
+LinkedList* ll_subList(LinkedList* this,int from,int to);
+/**
+	De una lista original hago una sublista. Ejemplo: tengo una lista con 100
+	elementos y le digo bueno haceme una sublista entre el elemento 5 y el
+	elemento 80 y obtengo una sublista para hacer algo
+**///////////////////////////////////////////////////////////////
+
+
+
+LinkedList* ll_clone(LinkedList* this);
+/**
+	Duplicar la lista en memoria. Genero de nuevo una lista nueva a la cual se le
+	copian todos los punteros. A veces conviene clonar una lista para no perder 
+	la original y sobre la lista clonada hacer algo sin que afecte a la original
+**///////////////////////////////////////////////////////////////
+
+
+
+int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
+/**
+	Me permite ordenar la lista. Se le pasa una funcion criterio. Esa funcion criterio va 
+	a ser la que decida el criterio de ordenamiento. La funcion recibe -1, 1 o 0.
+**///////////////////////////////////////////////////////////////
